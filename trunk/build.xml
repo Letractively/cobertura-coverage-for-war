@@ -18,7 +18,7 @@
 	
 	<path id="test.classpath">
 	    <fileset dir="${war.dir}">
-		<include name="**/*.war" />
+		<include name="**/${war.file}" />
 	    </fileset>
 	</path>
 
@@ -30,7 +30,7 @@
 	
 	<target name="instrument" description="Instrument" depends="clean">
 		<cobertura-instrument todir="${instrumented.dir}">
-			<includeClasses regex=".*\.perceptive.*" />
+			<includeClasses regex="${include.regex}" />
 
 			<instrumentationClasspath>
 				<path refid="test.classpath" />
