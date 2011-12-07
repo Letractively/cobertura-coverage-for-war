@@ -13,8 +13,6 @@
 	
 	<property name="instrumented.dir" value="./instrumented" />
 	
-	<property name="war.dir" value="./war" />
-	
 
 	<path id="cobertura.classpath">
 	    <fileset dir="${cobertura.dir}">
