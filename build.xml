@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <project name="Cobertura" basedir="." default="coverage-report">
+
 	<property name="project.base"    value="."/>
 	
 	<property name="cobertura.dir" value="./lib/cobertura-1.9.4.1" />
@@ -8,6 +9,7 @@
 	<property name="coveragereport.dir" value="./generated/cobertura" />
 	
 	<property name="src.dir" value="/my/sourcecode/trails/trails/src" />
+	<property name="war.dir" value="/my/sourcecode/trails/trails/target" />
 	
 	<property name="datafile" value="./cobertura.ser" />
 	
@@ -22,7 +24,7 @@
 	</path>
 	
 	<path id="test.classpath">
-	    <fileset dir="/my/sourcecode/trails/trails/target">
+	    <fileset dir="${war.dir}">
 		<include name="**/*.war" />
 	    </fileset>
 	</path>
