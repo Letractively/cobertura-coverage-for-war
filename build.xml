@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="Cobertura" basedir="." default="coverage-report">
+	<property name="project.base"    value="."/>
+	
+	<property name="cobertura.dir" value="./lib/cobertura-1.9.4.1" />
+	<property name="coveragereport.dir" value="./cobertura" />
+	<property name="coveragereport.dir" value="/my/sourcecode/trails/trails/src" />
+
+	<path id="cobertura.classpath">
+	    <fileset dir="${cobertura.dir}">
+		<include name="cobertura.jar" />
+		<include name="lib/**/*.jar" />
+	    </fileset>
+	</path>
+
+	<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
+
+	<target name="coverage-report" description="Coverage report">
+		<cobertura-report format="html" destdir="${coveragereport.dir}" srcdir="${src.dir}" datafile ="/my/sourcecode/trails/trails/cobertura.ser" />
+	</target>
+
+</project>
