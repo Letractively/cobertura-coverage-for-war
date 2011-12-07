@@ -28,15 +28,23 @@
 		<cobertura-report format="html" destdir="${coveragereport.dir}" srcdir="${src.dir}" datafile ="${datafile}" />
 	</target>
 	
-	<target name="instrument" description="Instrument">
+	<target name="instrument" description="Instrument" depends="clean">
 		<cobertura-instrument todir="${instrumented.dir}">
-			<includeClasses regex=".*" />
+			<includeClasses regex=".*\.perceptive.*" />
 
 			<instrumentationClasspath>
 				<path refid="test.classpath" />
 			</instrumentationClasspath>
 		</cobertura-instrument>
 	</target>
+	
+	
+	<target name="clean" description="Clean all build artifacts">
+	        <delete dir="${instrumented.dir}" />
+	        <mkdir dir="${instrumented.dir}" />
+	        <delete file="${datafile}"/>
+	</target>
+
 	
 
 </project>
