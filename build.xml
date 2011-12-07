@@ -4,8 +4,17 @@
 	<property name="project.base"    value="."/>
 	
 	<property name="cobertura.dir" value="./lib/cobertura-1.9.4.1" />
-	<property name="coveragereport.dir" value="./cobertura" />
-	<property name="coveragereport.dir" value="/my/sourcecode/trails/trails/src" />
+	
+	<property name="coveragereport.dir" value="./generated/cobertura" />
+	
+	<property name="src.dir" value="/my/sourcecode/trails/trails/src" />
+	
+	<property name="datafile" value="./cobertura.ser" />
+	
+	<property name="instrumented.dir" value="./instrumented" />
+	
+	<property name="war.dir" value="./war" />
+	
 
 	<path id="cobertura.classpath">
 	    <fileset dir="${cobertura.dir}">
@@ -13,11 +22,28 @@
 		<include name="lib/**/*.jar" />
 	    </fileset>
 	</path>
+	
+	<path id="test.classpath">
+	    <fileset dir="/my/sourcecode/trails/trails/target/classes">
+		<include name="**/*.class" />
+	    </fileset>
+	</path>
 
 	<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
 
 	<target name="coverage-report" description="Coverage report">
-		<cobertura-report format="html" destdir="${coveragereport.dir}" srcdir="${src.dir}" datafile ="/my/sourcecode/trails/trails/cobertura.ser" />
+		<cobertura-report format="html" destdir="${coveragereport.dir}" srcdir="${src.dir}" datafile ="${datafile}" />
 	</target>
+	
+	<target name="instrument" description="Instrument">
+		<cobertura-instrument todir="${instrumented.dir}">
+			<includeClasses regex=".*" />
+
+			<instrumentationClasspath>
+				<path refid="test.classpath" />
+			</instrumentationClasspath>
+		</cobertura-instrument>
+	</target>
+	
 
 </project>
