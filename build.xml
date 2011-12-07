@@ -22,8 +22,8 @@
 	</path>
 	
 	<path id="test.classpath">
-	    <fileset dir="/my/sourcecode/trails/trails/target/classes">
-		<include name="**/*.class" />
+	    <fileset dir="/my/sourcecode/trails/trails/target">
+		<include name="**/*.war" />
 	    </fileset>
 	</path>
 
