@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<project name="Cobertura" basedir="." default="coverage-report">
+<project name="Cobertura" basedir="." default="report">
     	<property file="cobertura.properties" />
 
 	<property name="project.base"    value="."/>
@@ -24,12 +24,12 @@
 
 	<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
 
-	<target name="coverage-report" description="Coverage report">
+	<target name="report" description="Coverage report" depends="cleanReport">
 		<cobertura-report format="html" destdir="${coveragereport.dir}" srcdir="${src.dir}" datafile ="${datafile}" />
 	</target>
 	
-	<target name="instrument" description="Instrument" depends="clean">
-		<cobertura-instrument todir="${instrumented.dir}">
+	<target name="instrument" description="Instrument" depends="cleanInstrumented,cleanDataFile">
+		<cobertura-instrument datafile="${datafile}" todir="${instrumented.dir}">
 			<includeClasses regex="${include.regex}" />
 
 			<instrumentationClasspath>
@@ -38,13 +38,18 @@
 		</cobertura-instrument>
 	</target>
 	
+	<target name="cleanReport" description="Clean instrumented folder">
+	        <delete dir="${coveragereport.dir}" />
+	</target>
 	
-	<target name="clean" description="Clean all build artifacts">
+	<target name="cleanInstrumented" description="Clean instrumented folder">
 	        <delete dir="${instrumented.dir}" />
 	        <mkdir dir="${instrumented.dir}" />
-	        <delete file="${datafile}"/>
 	</target>
 
+	<target name="cleanDataFile" description="Clean datafile">
+	        <delete file="${datafile}"/>
+	</target>
 	
 
 </project>
