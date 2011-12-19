@@ -11,4 +11,12 @@ def logger = Logger.getLogger('cobertura')
 logger.setLevel(Level.INFO);
 
 logger.info "START"
+
+
+dataFile = "cobertura.ser"
+
+def defineCoberturaPathAndTasks() {
+    ant.taskdef(classpathRef: 'cobertura.classpath', resource: "tasks.properties")
+}
+
 logger.info "OVER"
