@@ -1,7 +1,5 @@
 * Convert ant to groovy
 
-* Add cobertura.jar to the web-inf/lib
-
 * Make a grails plugin ?
 
 * download war file from http address
