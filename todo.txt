@@ -1,8 +1,0 @@
-* Convert ant to groovy
-
-* Make a grails plugin ?
-
-* download war file from http address
-
-* Use grapes
-
