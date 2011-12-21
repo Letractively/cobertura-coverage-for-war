@@ -40,7 +40,13 @@
 	
 	<target name="injectCoberturaJar">
 	      <groovy>
-			println 'hello cob'
+	      		def warDir = properties['war.dir']
+	      		def warFile = properties['war.file']
+	      		
+	      		new AntBuilder().unzip(src:warDir+'/'+warFile, dest:'stagingWAR') 
+			new AntBuilder().copy(file:'lib/cobertura-1.9.4.1/cobertura.jar', tofile:'stagingWAR/WEB-INF/lib/cobertura.jar')
+	      		new AntBuilder().zip(destfile:'instrumented/'+warFile, basedir:'stagingWAR')
+
 	      </groovy>
 	</target>
 
@@ -57,6 +63,11 @@
 				<path refid="test.classpath" />
 			</instrumentationClasspath>
 		</cobertura-instrument>
+	</target>
+
+
+	<target name="instrumentWar" description="instrument and inject jar" depends ="instrument,injectCoberturaJar">
+	        
 	</target>
 	
 	<target name="cleanReport" description="Clean instrumented folder">
