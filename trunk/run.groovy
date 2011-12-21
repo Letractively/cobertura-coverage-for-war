@@ -15,8 +15,18 @@ logger.info "START"
 
 dataFile = "cobertura.ser"
 
-def defineCoberturaPathAndTasks() {
-    ant.taskdef(classpathRef: 'cobertura.classpath', resource: "tasks.properties")
+
+def ant = new AntBuilder()
+def PATH = 'cobertura.path'
+ant.path(id:PATH){
+    fileset(dir:"lib/cobertura-1.9.4.1") {
+	 include(name:"cobertura.jar")
+	 include(name:"lib/**/*.jar")
+    }
 }
+ant.taskdef(resource:"tasks.properties", classpathref:PATH)
+
+
+ant."cobertura-report" (format:"html", destdir:"./report" ,srcdir="/my/sourcecode/nexus/src/main/java" ,datafile ="nexus.ser" )
 
 logger.info "OVER"
