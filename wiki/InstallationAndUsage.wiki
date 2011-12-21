@@ -2,7 +2,7 @@
 
 = Installation =
 
-Add your content here.
+Do a SVN Checkout fromhttps://cobertura-coverage-for-war.googlecode.com/svn/trunk
 
 
 = Usage =
