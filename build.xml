@@ -21,8 +21,29 @@
 		<include name="**/${war.file}" />
 	    </fileset>
 	</path>
+	
+	
+	<path id="groovy.lib">
+	    <fileset dir="${basedir}">
+	         <include name="lib/groovy-1.8.2/lib/*.jar"/>
+	    </fileset>
+	</path>
+	
+	<taskdef name="groovy"
+	         classname="org.codehaus.groovy.ant.Groovy">    
+	      <classpath refid="groovy.lib" />
+	</taskdef>
+
 
 	<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
+	
+	
+	<target name="injectCoberturaJar">
+	      <groovy>
+			println 'hello cob'
+	      </groovy>
+	</target>
+
 
 	<target name="report" description="Coverage report" depends="cleanReport">
 		<cobertura-report format="html" destdir="${coveragereport.dir}" srcdir="${src.dir}" datafile ="${datafile}" />
