@@ -35,7 +35,7 @@ This step takes a war file as input and will then generate a war file instrument
 
 
 == 2. Test the application ==
-In this step, test the application by running manual tests or automated tests.
+Test the application by running manual tests or automated tests.
 
 The .ser file generated during the instrumentation phase *must* be put in the tomcat\bin folder. Otherwise a new .ser file will be created by the web application and that cannot be used to create a coverage report.
 
@@ -47,3 +47,10 @@ The .ser file generated during the instrumentation phase *must* be put in the to
           # .ser file updated by the web application
 
 == 3. Generating report ==
+
+
+*Input* :  
+          # .ser file updated by the web application
+
+*Output*: 
+          # HTML report
