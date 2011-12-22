@@ -28,7 +28,7 @@ There is a property file that comes along with it. 'cobertura.properties'. This 
  * war.file=application.war *<- Name of the war file*
  * datafile=./application.ser *<- Name of the .ser file that is used by cobertura*
  * instrumented.dir=./instrumented *<- Temp folder, where the instrumented file will be generated to*
- * include.regex={{{.*\.mypackage.*}}} *<- Files that are to be instrumented*
+ * include.regex={{{.*\.mypackage.*}}} *<- Classes that are to be instrumented. You can use any regex.*
 
 
 == 1. Instrument ==
