@@ -1,11 +1,6 @@
 #summary A TODO list.
 
-= Introduction =
-
-List of things to be done .Mostly enhancements.
-
-
-= Details =
+= List of things to be done .Mostly enhancements =
 
   * Port from Ant to Groovy
   * Use Grapes
