@@ -48,9 +48,14 @@ The .ser file generated during the instrumentation phase *must* be put in the to
 
 == 3. Generating report ==
 
+Now its time to generate the coverage report.
+
+*NOTE*: You will have to shut down Tomcat to get all updates persisted to the .ser file
 
 *Input* :  
           # .ser file updated by the web application
 
 *Output*: 
           # HTML report
+
+*command*: ant report
