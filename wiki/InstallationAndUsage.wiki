@@ -11,7 +11,8 @@ Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/tru
   * War file to be instrumented
 
 = Usage =
-This runs off an Ant script. SO each command is run as an ant command. E.g. *_ant <command>_*
+This runs off an Ant script. SO each command is run as an ant command.
+ E.g. *_ant <command>_*
 
 There is a property file that comes along with it. 'cobertura.properties'. This property file needs to be modified to match your local folder structure,war file name, etc.
 
