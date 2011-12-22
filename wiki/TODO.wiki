@@ -10,3 +10,6 @@ List of things to be done .Mostly enhancements.
   * Port from Ant to Groovy
   * Use Grapes
   * Download war file from a http address
+  * Create a single file for download\installation
+  * Remove groovy jar files from lib
+  * Remove cobertura jar files from lib
