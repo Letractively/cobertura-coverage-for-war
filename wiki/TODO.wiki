@@ -6,3 +6,5 @@
   * Create a single file for download\installation
   * Remove groovy jar files from lib
   * Remove cobertura jar files from lib
+  * Update .ser file, without shutting down Tomcat
+  * Merge .ser files
