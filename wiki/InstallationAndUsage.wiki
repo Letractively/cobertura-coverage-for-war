@@ -23,6 +23,7 @@ There is a property file that comes along with it. 'cobertura.properties'. This 
 
 == Cobertura.properties ==
  * coveragereport.dir=./report
+    The folder where the HTML report will be generated to
  * src.dir=/my/sourcecode/nexus/src/main/java
  * war.dir=/my/sourcecode/nexus/dist
  * war.file=nexus.war
