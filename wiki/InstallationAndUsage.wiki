@@ -11,8 +11,9 @@ Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/tru
   * War file to be instrumented
 
 = Usage =
-There are three steps to using this scrip
+There are three steps to using this script
 
+== Instrument ==
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
