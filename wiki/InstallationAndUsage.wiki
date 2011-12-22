@@ -22,13 +22,13 @@ E.g. ant command
 There is a property file that comes along with it. 'cobertura.properties'. This property file needs to be modified to match your local folder structure,war file name, etc.
 
 == Cobertura.properties ==
-* coveragereport.dir=./report
-* src.dir=/my/sourcecode/nexus/src/main/java
-* war.dir=/my/sourcecode/nexus/dist
-* war.file=nexus.war
-* datafile=./nexus.ser
-* instrumented.dir=./instrumented
-* include.regex=.*\.perceptive.*
+ * coveragereport.dir=./report
+ * src.dir=/my/sourcecode/nexus/src/main/java
+ * war.dir=/my/sourcecode/nexus/dist
+ * war.file=nexus.war
+ * datafile=./nexus.ser
+ * instrumented.dir=./instrumented
+ * include.regex=.*\.perceptive.*
 
 
 == 1. Instrument ==
