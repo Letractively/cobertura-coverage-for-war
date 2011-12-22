@@ -55,7 +55,7 @@
 		<cobertura-report format="html" destdir="${coveragereport.dir}" srcdir="${src.dir}" datafile ="${datafile}" />
 	</target>
 	
-	<target name="instrument" description="Instrument" depends="cleanInstrumented,cleanDataFile">
+	<target name="instrumentWar" description="Instrument" depends="cleanInstrumented,cleanDataFile">
 		<cobertura-instrument datafile="${datafile}" todir="${instrumented.dir}">
 			<includeClasses regex="${include.regex}" />
 
@@ -66,7 +66,7 @@
 	</target>
 
 
-	<target name="instrumentWar" description="instrument and inject jar" depends ="instrument,injectCoberturaJar">
+	<target name="instrument" description="instrument and inject jar" depends ="instrumentWar,injectCoberturaJar">
 	        
 	</target>
 	
