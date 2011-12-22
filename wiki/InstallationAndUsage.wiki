@@ -4,8 +4,14 @@
 
 Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/trunk
 
+= What you need =
+
+  * Ant
+  * Groovy
+  * War file to be instrumented
 
 = Usage =
+There are three steps to using this scrip
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
