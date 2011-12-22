@@ -12,6 +12,7 @@ Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/tru
 
 = Assumption =
   * Basic knowledge about how Cobertura works and what it means to instrument java byte code
+  * This has been tested only for Tomcat 
 
 = Usage =
 This runs as an Ant script. So each command is a separate ant target.
@@ -35,6 +36,7 @@ This step takes a war file as input and will then generate a war file instrument
 
 == 2. Test the application ==
 In this step, test the application by running manual tests or automated tests.
-The .ser file generated during the instrumentation phase *must* be put in the tomcat\bin folder. Otherwise A new .ser file will be created which will then generate *zero-coverage*  report
+
+The .ser file generated during the instrumentation phase *must* be put in the tomcat\bin folder. Otherwise a new .ser file will be created by the web application and that cannot be used to create a coverage report.
 
 == 3. Generating report ==
