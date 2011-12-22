@@ -14,7 +14,7 @@ Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/tru
   * Basic knowledge about how Cobertura works and what it means to instrument java byte code
 
 = Usage =
-This runs off an Ant script. SO each command is run as an ant command.
+This runs as an Ant script. So each command is a separate ant target.
 
 E.g. ant command
 
