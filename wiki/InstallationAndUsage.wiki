@@ -11,7 +11,8 @@ Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/tru
   * War file to be instrumented
 
 = Usage =
-There are three steps to using this script
+This runs off an Ant script.
+There is a property file that comes along with it. 'cobertura.properties'. This property file needs to be modified to match your local folder structure,war file name, etc
 
 == 1. Instrument ==
 This step takes a war file as input and will then generate a war file instrumented with Cobertura.
