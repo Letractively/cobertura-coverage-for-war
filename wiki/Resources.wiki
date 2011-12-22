@@ -1,3 +1,5 @@
 #summary Related, helpful links.
 
 http://stackoverflow.com/questions/1660141/java-measure-code-coverage-for-remote-scripting-tests
+
+http://cobertura.sourceforge.net/faq.html
