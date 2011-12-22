@@ -34,7 +34,8 @@ There is a property file that comes along with it. 'cobertura.properties'. This 
 == 1. Instrument ==
 This step takes a war file as input and will then generate a war file instrumented with Cobertura. All the jar files in the war file will be instrumented (You can control what _not_ to instrument though)
 
-*Input* : War file to be instrumented
+*Input* : 
+          # War file to be instrumented
 
 *Output*: 
           # Instrumented war file
