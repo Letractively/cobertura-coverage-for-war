@@ -28,7 +28,7 @@ There is a property file that comes along with it. 'cobertura.properties'. This 
  * war.file=nexus.war *<- Name of the war file*
  * datafile=./nexus.ser *<- Name of the .ser file that is used by cobertura*
  * instrumented.dir=./instrumented *<- Temp folder, where the instrumented file will be generated to*
- * include.regex=.*\.perceptive.* *<- Files that are not to be instrumented*
+ * include.regex={{{.*\.perceptive.*}}} *<- Files that are not to be instrumented*
 
 
 == 1. Instrument ==
