@@ -40,12 +40,12 @@
 	
 	<target name="injectCoberturaJar">
 	      <groovy>
-	      		def warDir = properties['war.dir']
+	      		def warDir = properties['instrumented.dir']
 	      		def warFile = properties['war.file']
 	      		
 	      		new AntBuilder().unzip(src:warDir+'/'+warFile, dest:'stagingWAR') 
 			new AntBuilder().copy(file:'lib/cobertura-1.9.4.1/cobertura.jar', tofile:'stagingWAR/WEB-INF/lib/cobertura.jar')
-	      		new AntBuilder().zip(destfile:'instrumented/'+warFile, basedir:'stagingWAR')
+	      		new AntBuilder().zip(destfile:warDir+'/'+warFile, basedir:'stagingWAR')
 
 	      </groovy>
 	</target>
