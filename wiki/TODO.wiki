@@ -8,3 +8,4 @@
   * Remove cobertura jar files from lib
   * Update .ser file, without shutting down Tomcat
   * Merge .ser files
+  * Support multiple src folders
