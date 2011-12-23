@@ -6,7 +6,8 @@
 	<property name="project.base"    value="."/>
 	
 	<property name="cobertura.dir" value="./lib/cobertura-1.9.4.1" />
-	
+	<property name="datafile" value="cobertura.ser" />
+
 	
 
 	<path id="cobertura.classpath">
