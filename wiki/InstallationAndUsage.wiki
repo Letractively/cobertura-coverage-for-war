@@ -16,7 +16,7 @@ Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/tru
 = Usage =
 This runs as a groovy script.
 
-e.g. groovy run [ command ]
+e.g. groovy run _command_
 
 There is a property file that comes along with it. 'cobertura.properties'. This property file needs to be modified to match your local folder structure,war file name, etc.
 
