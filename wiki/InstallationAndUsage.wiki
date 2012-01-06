@@ -6,7 +6,6 @@ Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/tru
 
 = What you need =
 
-  * Ant
   * Groovy
   * War file to be instrumented
 
@@ -15,9 +14,11 @@ Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/tru
   * This has been tested only for Tomcat 
 
 = Usage =
-This runs as an Ant script. So each command is a separate ant target.
+This runs as a groovy script.
 
-E.g. ant command
+Valid commands
+*groovy run report
+*groovy run instrument
 
 There is a property file that comes along with it. 'cobertura.properties'. This property file needs to be modified to match your local folder structure,war file name, etc.
 
