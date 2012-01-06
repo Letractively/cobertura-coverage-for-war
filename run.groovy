@@ -9,7 +9,7 @@ def antBuilder=  new AntBuilder()
 antBuilder.property ( 'file' : propertyFile )
 antBuilder.property ( 'name' : 'project.base' , 'value' : '.' )
 antBuilder.property ( 'name' : 'cobertura.dir' , 'value' : './lib/cobertura-1.9.4.1' )
-antBuilder.property ( 'name' : 'datafile' , 'value' : 'cobertura.ser' )
+antBuilder.property ( 'name' : 'datafile' , 'value' : '${instrumented.dir}/cobertura.ser' )
 antBuilder.path ( 'id' : 'cobertura.classpath' ) {
     fileset ( 'dir' : '${cobertura.dir}' ) {
       include ( 'name' : 'cobertura.jar' )
@@ -54,15 +54,20 @@ def injectCoberturaWar(antBuilder){
 
 
 def cleanDataFile (antBuilder){
+  antBuilder.echo 'deleting...${datafile}'
   antBuilder.delete ( 'file' : '${datafile}' )
 }
 
 def cleanInstrumented (antBuilder){
+  antBuilder.echo 'deleting...${instrumented.dir}'
   antBuilder.delete ( 'dir' : '${instrumented.dir}' )
+  
+  antBuilder.echo 'creating...${instrumented.dir}'
   antBuilder.mkdir ( 'dir' : '${instrumented.dir}' )
 }
 
 def cleanReport (antBuilder){
+  antBuilder.echo 'creating...${coveragereport.dir}'
   antBuilder.delete ( 'dir' : '${coveragereport.dir}' )
 }
 
