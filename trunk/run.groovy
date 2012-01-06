@@ -14,27 +14,27 @@ antBbuilder.path ( 'id' : 'test.classpath' ) {
       include ( 'name' : '**/${war.file}' )
     }
   }
-antBbuilder.path ( 'id' : 'groovy.lib' ) {
-    fileset ( 'dir' : '${basedir}' ) {
-      include ( 'name' : 'lib/groovy-1.8.2/lib/*.jar' )
-    }
-  }
-antBbuilder.taskdef ( 'name' : 'groovy' , 'classname' : 'org.codehaus.groovy.ant.Groovy' ) {
-    classpath ( 'refid' : 'groovy.lib' )
-  }
+//antBbuilder.path ( 'id' : 'groovy.lib' ) {
+//    fileset ( 'dir' : '${basedir}' ) {
+//      include ( 'name' : 'lib/groovy-1.8.2/lib/*.jar' )
+//    }
+//  }
+//antBbuilder.taskdef ( 'name' : 'groovy' , 'classname' : 'org.codehaus.groovy.ant.Groovy' ) {
+//    classpath ( 'refid' : 'groovy.lib' )
+//  }
 antBbuilder.taskdef ( 'classpathref' : 'cobertura.classpath' , 'resource' : 'tasks.properties' )
 
 
-def report(){
+def report(antBbuilder){
 	antBbuilder.'cobertura-report' ( 'destdir' : '${coveragereport.dir}' , 'srcdir' : '${src.dir}' , 'datafile' : '${datafile}' , 'format' : 'html' )
 }
 
 
-def instrumentWar(){
+def instrumentWar(antBbuilder){
 
   antBbuilder.'cobertura-instrument' ( 'todir' : '${instrumented.dir}' , 'datafile' : '${datafile}' ) {
-    antBbuilder.includeClasses ( 'regex' : '${include.regex}' )
-    antBbuilder.instrumentationClasspath {
+    includeClasses ( 'regex' : '${include.regex}' )
+    instrumentationClasspath {
       path ( 'refid' : 'test.classpath' )
     }
   }
@@ -42,32 +42,43 @@ def instrumentWar(){
 }
 
 
-def injectCoberturaWar(){
-	def warDir = properties['instrumented.dir']
-	def warFile = properties['war.file']
-
-	new AntBuilder().unzip(src:warDir+'/'+warFile, dest:'stagingWAR') 
-	new AntBuilder().copy(file:'lib/cobertura-1.9.4.1/cobertura.jar', tofile:'stagingWAR/WEB-INF/lib/cobertura.jar')
-	new AntBuilder().zip(destfile:warDir+'/'+warFile, basedir:'stagingWAR')
+def injectCoberturaWar(antBbuilder){
+	//def warDir = properties['instrumented.dir']
+	//def warFile = properties['war.file']
+	
+	antBbuilder.unzip(src:'${instrumented.dir}'+'/${war.file}', dest:'stagingWAR') 
+	antBbuilder.copy(file:'lib/cobertura-1.9.4.1/cobertura.jar', tofile:'stagingWAR/WEB-INF/lib/cobertura.jar')
+	antBbuilder.zip(destfile:'${instrumented.dir}/${war.file}', basedir:'stagingWAR')
 }
 
 
-def cleanDataFile (){
-  new AntBuilder().delete ( 'file' : '${datafile}' )
+def cleanDataFile (antBbuilder){
+  antBbuilder.delete ( 'file' : '${datafile}' )
 }
 
-def cleanInstrumented (){
-  new AntBuilder().delete ( 'dir' : '${instrumented.dir}' )
-  new AntBuilder().mkdir ( 'dir' : '${instrumented.dir}' )
+def cleanInstrumented (antBbuilder){
+  antBbuilder.delete ( 'dir' : '${instrumented.dir}' )
+  antBbuilder.mkdir ( 'dir' : '${instrumented.dir}' )
 }
 
-def cleanReport (){
-  new AntBuilder().delete ( 'dir' : '${coveragereport.dir}' )
+def cleanReport (antBbuilder){
+  antBbuilder.delete ( 'dir' : '${coveragereport.dir}' )
 }
 
-def instrument (){
-	instrumentWar()
-	injectCoberturaWar()
+def instrument (antBbuilder){
+	cleanInstrumented (antBbuilder)
+	instrumentWar(antBbuilder)
+	injectCoberturaWar(antBbuilder)
 }
 
-cleanReport()
+def command= args[0]
+
+
+switch (command){
+	case 'instrument': instrument (antBbuilder)
+			break
+	case 'report' : report (antBbuilder)
+		break
+	default: println 'Unknown command. usage: groovy run <instrument or report>'
+
+}
