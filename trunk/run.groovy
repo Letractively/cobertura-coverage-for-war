@@ -18,7 +18,12 @@ antBuilder.taskdef ( 'classpathref' : 'cobertura.classpath' , 'resource' : 'task
 
 
 def report(antBuilder){
-	antBuilder.'cobertura-report' ( 'destdir' : '${coveragereport.dir}' , 'srcdir' : '${src.dir}' , 'datafile' : '${datafile}' , 'format' : 'html' )
+	antBuilder.'cobertura-report' ( 'destdir' : '${coveragereport.dir}' ,  'datafile' : '${datafile}' , 'format' : 'html' ){
+	    fileset ( 'dir' : '${src.dir}' ) {
+	      include ( 'name' : '**/*.java' )
+	    }
+	}
+	
 }
 
 
