@@ -14,14 +14,6 @@ antBbuilder.path ( 'id' : 'test.classpath' ) {
       include ( 'name' : '**/${war.file}' )
     }
   }
-//antBbuilder.path ( 'id' : 'groovy.lib' ) {
-//    fileset ( 'dir' : '${basedir}' ) {
-//      include ( 'name' : 'lib/groovy-1.8.2/lib/*.jar' )
-//    }
-//  }
-//antBbuilder.taskdef ( 'name' : 'groovy' , 'classname' : 'org.codehaus.groovy.ant.Groovy' ) {
-//    classpath ( 'refid' : 'groovy.lib' )
-//  }
 antBbuilder.taskdef ( 'classpathref' : 'cobertura.classpath' , 'resource' : 'tasks.properties' )
 
 
@@ -43,9 +35,6 @@ def instrumentWar(antBbuilder){
 
 
 def injectCoberturaWar(antBbuilder){
-	//def warDir = properties['instrumented.dir']
-	//def warFile = properties['war.file']
-	
 	antBbuilder.unzip(src:'${instrumented.dir}'+'/${war.file}', dest:'stagingWAR') 
 	antBbuilder.copy(file:'lib/cobertura-1.9.4.1/cobertura.jar', tofile:'stagingWAR/WEB-INF/lib/cobertura.jar')
 	antBbuilder.zip(destfile:'${instrumented.dir}/${war.file}', basedir:'stagingWAR')
