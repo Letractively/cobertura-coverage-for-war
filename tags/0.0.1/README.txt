@@ -1,0 +1,1 @@
+see http://http://code.google.com/p/cobertura-coverage-for-war/wiki/InstallationAndUsage
