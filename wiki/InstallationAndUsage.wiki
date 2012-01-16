@@ -2,7 +2,7 @@
 
 = Installation =
 
-Do a SVN Checkout from https://cobertura-coverage-for-war.googlecode.com/svn/trunk
+Download the zip file and unzip to any folder of your liking.
 
 = What you need =
 
