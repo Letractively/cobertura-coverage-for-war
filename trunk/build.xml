@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="InstrumentWar" default="publish" basedir=".">
+	<property name="project.base"    value="."/>
+	
+    	<target name="publish">
+    	        <echo>
+	            +----------------------------------------+
+	            |                                        |
+	            |  Creating Dist....		     |
+	            |                                        |
+	            +----------------------------------------+
+	        </echo>
+	        <zip destfile="InstrumentWar-0.0.1.zip" basedir="." includes="lib/**/*.*,run.groovy,cobertura.properties,README.txt"
+                    />
+	</target>
+</project>
