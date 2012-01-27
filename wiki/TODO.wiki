@@ -1,11 +1,7 @@
 #summary List of things to be done .Mostly enhancements.
 
-  * Port from Ant to Groovy
-  * Use Grapes
-  * Download war file from a http address
-  * Create a single file for download\installation
-  * Remove groovy jar files from lib
-  * Remove cobertura jar files from lib
-  * Update .ser file, without shutting down Tomcat
-  * Merge .ser files
   * Support multiple src folders
+  * Merge .ser files
+  * Update .ser file, without shutting down Tomcat
+  * Use Grapes \ Remove cobertura jar files from lib
+  * Download war file from a http address
