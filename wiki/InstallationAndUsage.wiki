@@ -67,6 +67,7 @@ Now its time to generate the coverage report.
 
 *Input* :  
           # cobertura.ser file updated by the web application
+Copy this file back to the original location - "instrumented.dir"
 
 *Output*: 
           # HTML report
